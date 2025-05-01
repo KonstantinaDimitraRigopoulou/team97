@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Work with us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Μενού -->
+  <nav style="position: relative;">
+    <div class="nav-left">
+      <p>Έχετε συνδεθεί ως Υποψήφιος Εργαζόμενος</p>
+    </div>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#" onclick="toggleJobPostings()">Job Postings</a></li>
+        <li><a href="#" onclick="toggleForm()">Apply</a></li>
+      </ul>
+    </div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_imxKWKbJqGD8ZSfGUF7InOBHaHgqzegJRw&s"alt="Εικόνα" style="position: absolute; top: 0; right: 0; width: 90px; height: auto; margin: 10px;">
+  </nav>
+
+  <div class="container">
+    <h2 id="jobTitle" style="display:none;">Θέσεις Εργασίας</h2>
+    <div id="jobPostings" style="display:none;">
+      <table>
+        <thead>
+          <tr>
+            <th>Θέση</th>
+            <th>Τμήμα</th>
+            <th>Τοποθεσία</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Πωλητής</td>
+            <td>Πωλήσεις</td>
+            <td>Αγορά Costa Navarino</td>
+          </tr>
+          <tr>
+            <td>Υπεύθυνος Marketing</td>
+            <td>Μάρκετινγκ</td>
+            <td>Χαλάνδρι</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <form id="applicationForm">
+      <h2>Φόρμα Αίτησης Εργασίας</h2>
+
+      <label><b>Ονοματεπώνυμο</b></label>
+      <input type="text" required>
+
+      <label><b>Ημερομηνία Γέννησης</b></label>
+      <input type="date" required>
+
+      <label><b>Καταγωγή</b></label>
+      <input type="text" required>
+
+      <label><b>Τηλέφωνο</b></label>
+      <input type="tel" required>
+
+      <label><b>Email</b></label>
+      <input type="email" required>
+
+      <label><b>LinkedIn</b> (προαιρετικό)</label>
+      <input type="url" placeholder="https://linkedin.com/in/username">
+
+      <label><b>Εκπαίδευση</b></label>
+      <select required>
+        <option value="">-- Επιλέξτε --</option>
+        <option>Απόφοιτος Λυκείου</option>
+        <option>Απόφοιτος ΙΕΚ</option>
+        <option>Απόφοιτος ΤΕΙ</option>
+        <option>Απόφοιτος Πανεπιστημίου</option>
+        <option>Μεταπτυχιακό / Διδακτορικό</option>
+      </select>
+
+      <label><b>Ενδιαφέροντα</b></label>
+      <select required>
+        <option value="">-- Επιλέξτε --</option>
+        <option>Μουσική</option>
+        <option>Γυμναστική</option>
+        <option>Μαγειρική</option>
+        <option>Τέχνη</option>
+        <option>Τεχνολογία/Υπολογιστές</option>
+      </select>
+      <input type="text" placeholder="Προσθέστε τα Ενδιαφέροντά σας">
+
+      <label><b>Ξένες Γλώσσες</b></label>
+      <div class="languages">
+        <label><input type="checkbox" name="languages" value="Αγγλικά"> Αγγλικά</label>
+        <label><input type="checkbox" name="languages" value="Γαλλικά"> Γαλλικά</label>
+        <label><input type="checkbox" name="languages" value="Γερμανικά"> Γερμανικά</label>
+        <label><input type="checkbox" name="languages" value="Ιταλικά"> Ιταλικά</label>
+        <label><input type="checkbox" name="languages" value="Ισπανικά"> Ισπανικά</label>
+        <label><input type="checkbox" name="languages" value="Ρώσικα"> Ρώσικα</label>
+      </div>
+
+
+
+      <label><b>Εργασιακή Εμπειρία</b></label>
+      <textarea rows="4" placeholder="Προσθέστε την Εργασιακή σας Εμπειρία"></textarea>
+
+      <label><b>Ανέβασμα Βιογραφικού</b></label>
+      <input type="file" accept=".pdf,.doc,.docx">
+
+      <label><b>Ανέβασμα Φωτογραφίας</b></label>
+      <input type="file" accept="image/*">
+
+      <label><b>Για ποια θέση ενδιαφέρεστε;</b></label>
+      <div class="posting">
+        <label><input type="checkbox" name="posting" value="Πωλητής"> Πωλητής</label>
+        <label><input type="checkbox" name="posting" value="Υπεύθυνος Marketing"> Υπεύθυνος Marketing</label>
+      </div>
+
+      <label><b>Γιατί θέλεις να εργαστείς στην εταιρεία / Άλλες σημειώσεις</b></label>
+      <textarea rows="3"></textarea>
+
+      <div class="form-buttons">
+        <button type="submit">Αποστολή</button>
+        <button type="reset">Διαγραφή</button>
+        <button type="button" onclick="editForm()">Επεξεργασία</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+     function toggleJobPostings() {
+      const jobPostings = document.getElementById("jobPostings");
+      const jobTitle = document.getElementById("jobTitle"); // Επικεφαλίδα
+
+      if (jobPostings.style.display === "none" || jobPostings.style.display === "") {
+        jobPostings.style.display = "block";
+        jobTitle.style.display = "block"; // Εμφανίζει την επικεφαλίδα
+      } else {
+        jobPostings.style.display = "none";
+        jobTitle.style.display = "none"; // Κρύβει την επικεφαλίδα
+      }
+    }
+
+
+    function toggleForm() {
+      const form = document.getElementById("applicationForm");
+      form.style.display = form.style.display === "none" || form.style.display === "" ? "block" : "none";
+    }
+
+    function editForm() {
+      alert("Μπορείτε να επεξεργαστείτε τη φόρμα χειροκίνητα.");
+    }
+
+    document.getElementById("applicationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Η αίτησή σας υποβλήθηκε με επιτυχία!");
+      this.reset();
+      this.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
