@@ -1,0 +1,101 @@
+body {
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto; /* Επιτρέπει την κάθετη κύλιση */
+  }
+    font-family: Arial, sans-serif;
+    background-color: #bbcaf9;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px; /* Δημιουργεί χώρο γύρω από το περιεχόμενο */
+    box-sizing: border-box; /* Για να συμπεριλαμβάνεται το padding στην περιοχή */
+  }
+  
+  .container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    min-height: 100vh;
+    overflow: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 800px;
+    margin-left: 60px;
+    margin-right: 50px;
+    flex-direction: column;
+  }
+  
+  h1, h2 {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #7f79e5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #877ee5;
+  }
+  
+  input {
+    display: block;
+    width: 200px;
+    padding: 8px;
+    margin: 8px auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #successMessage {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+  }
+  .logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  
+.role-buttons button {
+  margin: 10px 0;
+}
+
+#loginForm {
+  margin-top: 10px;
+}
+
+#about-us {
+  padding: 60px 20px;
+  width: 100%;
+  text-align: center;
+}
+
+#about-us h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#about-us p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
