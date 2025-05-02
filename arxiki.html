@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Σύνδεση στο Σύστημα</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="image.jpg" alt="Λογότυπο Επιχείρησης" class="logo">
+
+     <h1>Σύνδεση ως</h1>
+  
+     <div class="role-buttons">
+      <button onclick="selectRole('employee')">Υποψήφιος Εργαζόμενος</button>
+      <button onclick="selectRole('hr')">HR Manager</button>
+      <button onclick="selectRole('owner')">Ιδιοκτήτης Επιχείρησης</button>
+    </div>
+
+    <!-- Φόρμα Σύνδεσης -->
+    <div id="loginForm" class="hidden">
+      <h2 id="roleTitle">Σύνδεση</h2>
+      <form onsubmit="submitLogin(event)">
+        <input type="text" id="username" placeholder="Όνομα χρήστη" required>
+        <input type="password" id="password" placeholder="Κωδικός πρόσβασης" required>
+        <button type="submit">Σύνδεση</button>
+      </form>
+    </div>
+
+    <!-- Επιτυχές Μήνυμα -->
+    <div id="successMessage" class="hidden">
+      ✅ Συνδέθηκες επιτυχώς!
+    </div>
+
+    <!-- Μήνυμα Λάθους -->
+    <div id="errorMessage" class="hidden">
+      ❌ Σφάλμα: Παρακαλώ εισάγετε σωστά τα στοιχεία σας.
+    </div>
+ 
+  <hr style="margin: 60px auto 30px auto; border: 1px solid #ccc; width: 80%;">
+
+  <section id="about-us" style="text-align: center; padding: 30px;">
+  <h2 style="margin-bottom: 15px;">About us</h2>
+  <p style="max-width: 700px; margin: auto; line-height: 1.6; text-align: justify; font-size: 14px;">
+    Καλωσορίσατε στην Milkshakes and Dreams! Η εταιρεία μας ιδρύθηκε το 2013 και έκτοτε προσφέρει μια ευρεία γκάμα προϊόντων ένδυσης, ειδών διακόσμησης, αξεσουάρ, παιδικών παιχνιδιών καθώς και προϊόντα για μητέρες. Στόχος μας είναι να παρέχουμε προϊόντα και υπηρεσίες υψηλής ποιότητας που ανταποκρίνονται στις ανάγκες των ανθρώπων, δημιουργώντας μια μοναδική εμπειρία για τον κάθε πελάτη με σεβασμό, αισθητική και καινοτομία. Φροντίζουμε η ομάδα μας να αποτελείται από άτομα με αγάπη για τα παιδιά και κάθε μέλος της  να παίζει σημαντικό ρόλο στην επίτευξη των στόχων μας και στην παροχή των καλύτερων δυνατών λύσεων για τους πελάτες μας.
+
+    
+    
+    
+    
+    Στην Milkshakes and Dreams κατανοούμε τις προκλήσεις που αντιμετωπίζουν οι εταιρείες κατά τη διάρκεια της διαδικασίας προσλήψεων. Γι' αυτό δημιουργήσαμε ένα σύστημα που διευκολύνει την ανάρτηση θέσεων εργασίας και τη συνολική διαχείριση βιογραφικών με απλό και γρήγορο τρόπο. Εμείς παρέχουμε μια ευέλικτη και ολοκληρωμένη πλατφόρμα, που μας επιτρέπει να επικεντρωθούμε στο πιο σημαντικό: να βρούμε τους καλύτερους ανθρώπους για τις θέσεις τους.
+    
+  </p>
+</section>
+</div>
+
+
+  <script>
+    // Ελέγχει τον ρόλο που επέλεξε ο χρήστης
+    function selectRole(role) {
+      const form = document.getElementById("loginForm");
+      const successMsg = document.getElementById("successMessage");
+      const errorMsg = document.getElementById("errorMessage");
+      const title = document.getElementById("roleTitle");
+
+      // Αρχικά κρύβουμε τα μηνύματα και τη φόρμα
+      form.classList.add("hidden");
+      successMsg.classList.add("hidden");
+      errorMsg.classList.add("hidden");
+
+      // Αν επιλέξει "Υποψήφιος Εργαζόμενος", δεν χρειάζεται να μπει username και password
+      if (role === "employee") {
+        successMsg.classList.remove("hidden");
+      } else {
+        title.textContent = role === "hr" ? "HR Manager" : "Ιδιοκτήτης Επιχείρησης";
+        form.classList.remove("hidden");
+      }
+    }
+
+    // Ελέγχει τα πεδία και εμφανίζει τα αντίστοιχα μηνύματα
+    function submitLogin(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const successMsg = document.getElementById("successMessage");
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (username === "" || password === "") {
+        successMsg.classList.add("hidden");
+        errorMsg.classList.remove("hidden");
+      } else {
+        errorMsg.classList.add("hidden");
+        successMsg.classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
