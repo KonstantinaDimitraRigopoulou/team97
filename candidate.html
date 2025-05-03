@@ -128,36 +128,45 @@
   </div>
 
   <script>
-     function toggleJobPostings() {
+    function toggleJobPostings() {
       const jobPostings = document.getElementById("jobPostings");
-      const jobTitle = document.getElementById("jobTitle"); // Επικεφαλίδα
-
-      if (jobPostings.style.display === "none" || jobPostings.style.display === "") {
-        jobPostings.style.display = "block";
-        jobTitle.style.display = "block"; // Εμφανίζει την επικεφαλίδα
-      } else {
-        jobPostings.style.display = "none";
-        jobTitle.style.display = "none"; // Κρύβει την επικεφαλίδα
-      }
+      const jobTitle = document.getElementById("jobTitle");
+      const form = document.getElementById("applicationForm");
+  
+      // Πάντα κρύψε τη φόρμα
+      form.style.display = "none";
+  
+      // Εμφάνισε ή κρύψε τα job postings
+      const showJobPostings = jobPostings.style.display !== "block";
+      jobPostings.style.display = showJobPostings ? "block" : "none";
+      jobTitle.style.display = showJobPostings ? "block" : "none";
     }
-
-
+  
     function toggleForm() {
       const form = document.getElementById("applicationForm");
-      form.style.display = form.style.display === "none" || form.style.display === "" ? "block" : "none";
+      const jobPostings = document.getElementById("jobPostings");
+      const jobTitle = document.getElementById("jobTitle");
+  
+      // Πάντα κρύψε τα job postings
+      jobPostings.style.display = "none";
+      jobTitle.style.display = "none";
+  
+      // Εμφάνισε ή κρύψε τη φόρμα
+      const showForm = form.style.display !== "block";
+      form.style.display = showForm ? "block" : "none";
     }
-
+  
     function editForm() {
       alert("Μπορείτε να επεξεργαστείτε τη φόρμα χειροκίνητα.");
     }
-
+  
     document.getElementById("applicationForm").addEventListener("submit", function(e) {
       e.preventDefault();
       alert("Η αίτησή σας υποβλήθηκε με επιτυχία!");
       this.reset();
       this.style.display = "none";
     });
-  </script>
+  </script>  
 
 </body>
 </html>
