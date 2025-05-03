@@ -70,7 +70,8 @@
 
       // Αν επιλέξει "Υποψήφιος Εργαζόμενος", δεν χρειάζεται να μπει username και password
       if (role === "employee") {
-        successMsg.classList.remove("hidden");
+        window.location.href = "candidate.html"; 
+        return;
       } else {
         title.textContent = role === "hr" ? "HR Manager" : "Ιδιοκτήτης Επιχείρησης";
         form.classList.remove("hidden");
