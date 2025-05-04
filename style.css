@@ -88,3 +88,36 @@ label {
     display: block;
     margin-bottom: 10px;
 }
+
+
+.content-section {
+  display: none;
+  padding: 30px;
+  margin-top: 90px;
+  background-color: #fdf5f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(117, 117, 172, 0.2);
+}
+
+.application-box {
+  border: 3px solid #7575ac;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.application-box:hover {
+  transform: scale(1.02);
+  background-color: #f0f0ff;
+}
+
+.action-buttons {
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  margin-right: 10px;
+}
