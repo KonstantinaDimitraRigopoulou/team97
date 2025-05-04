@@ -1,97 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="icon" href="logo.png">
-    <title>Reports</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-    <div class="con">
-        <div class="navbar">
-            <img src="menu.jpeg" width=30px cursor=pointer margin-left=50px>
-            <nav>
-                <ul>
-                    <li><a href="idioktitria.html">About Us</a></li>
-                    <li><a href="LINK GIA TA JOB POSTINGS ">Job Postings</a></li>
-                    <li><a href="statistics.html">Reports</a></li>
-                </ul>
-            </nav>
-            <img src="logo.png" width=150px cursor=pointer>
-        </div>
-    </div>
-    <div class="contact">
-        <h3>Breakdown of total employees in the company:</h3>
-        <p><img src="histo.png" width=550px cursor=pointer></p>
-        <br>
-        <h3>Information about recent job openings:</h3>
-        <p><img src="pie.png" width=550px cursor=pointer></p>
-
-        <br>
-        <h3>Contact details of employees:</h3>
-        <br>
-        <table style="width:60%">
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>E-mail</th>
-            </tr>
-            <tr>
-                <td>Papadopoulou Maria</td>
-                <td>69006780 </td>
-                <td>papmar22@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Karanikolas Nikolaos</td>
-                <td>69888845</td>
-                <td>nick.kara@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Georgopoulou Aikaterini</td>
-                <td>6989898357</td>
-                <td>katgeo@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Papakosta Sofia</td>
-                <td>6966647</td>
-                <td>papakosta.sof@hotmail.com</td>
-            </tr>
-            <tr>
-                <td>Kostakis Petros</td>
-                <td>698834526 </td>
-                <td>kostpeter45@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Kalimeratzi Kyriaki</td>
-                <td>69888845</td>
-                <td>kyr77kal@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Papa Natalia</td>
-                <td>698789877</td>
-                <td>natpap66@gmail.com</td>
-            </tr>
-            <tr>
-                <td>Tsaroychi Evangelia</td>
-                <td>6966647</td>
-                <td>evan.ts@hotmail.com</td>
-            </tr>
-        </table>
-        <br>
-        <h3>E-shop:</h3>
-        <p class="para"> The official website of the company's e-shop:<a href="https://milkshakesanddreams.com"> Milkshakes and Dreams</a> </p>
-    </div>
-
-    <footer>
-        <div class="footer">
-            <p>Milkshakes and Dreams</p>
-            <p>2025</p>
-        </div>
-    </footer>
-</body>
-
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="logo.png">
+    <title>Reports</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport " content="width=device-width, initial-scale=1">
+    <style>
+        .navbar {
+            background-color: #7575ac;
+        }
+
+        .nav-link {
+            color: rgb(255, 240, 245);
+        }
+
+        .nav-link:hover {
+            color: #ffb6c1 !important;
+            /* Lighter pink */
+        }
+
+        .content-section {
+            display: none;
+            padding: 100px;
+        }
+
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #7575ac;
+            padding: 25px 0;
+        }
+
+        .nav-link {
+            color: rgb(255, 240, 245);
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ffb6c1 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm  fixed-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Milshakes and Dreams Logo" style="width:90px;" class="rounded-pill">
+            </a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="idioktitria.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jobpostings.html">Job Postings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistics.html">Reports</a>
+                </li>
+            </ul>
+            
+
+
+        </div>
+    </nav>
+    <div class="contact">
+        <h3>Breakdown of total employees in the company:</h3>
+        <br>
+        <div class="container my-5">
+            <h3 class="text-center">Employees</h3>
+            <canvas id="myChart"></canvas>
+          </div>
+       
+         
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       
+          
+          <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['Total', 'Office', 'Retail', 'Openings'],
+                datasets: [{
+                  label: 'Employees',
+                  data: [8, 3, 5, 3],
+                  backgroundColor: '#7575ac'
+                }]
+              },
+              options: {
+                responsive: true
+              }
+            });
+          </script>
+
+
+        
+        <br>
+        <h3>Information about recent job openings:</h3>
+      
+        <h3 class="text-center">Job Openings</h3>
+        <div class="container my-5" style="display: flex; justify-content: center;">
+            <canvas id="pieChart" width="300" height="300"></canvas>
+        </div>
+
+        
+ 
+        <script>
+          const ct = document.getElementById('pieChart').getContext('2d');
+          new Chart(ct, {
+            type: 'pie',
+            data: {
+              labels: ['Pending', 'Filled'],
+              datasets: [{
+                label: 'Job Openings',
+                data: [2,1],
+                backgroundColor: ['#7575ac','rgb(255, 240, 245)']
+              }]
+            },
+            options: {
+              responsive: true
+            }
+          });
+        </script>
+
+        <br>
+        <h3>Contact details of employees:</h3>
+        <br>
+        <table style="width:60%">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>E-mail</th>
+            </tr>
+            <tr>
+                <td>Papadopoulou Maria</td>
+                <td>69006780 </td>
+                <td>papmar22@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Karanikolas Nikolaos</td>
+                <td>69888845</td>
+                <td>nick.kara@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Georgopoulou Aikaterini</td>
+                <td>6989898357</td>
+                <td>katgeo@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Papakosta Sofia</td>
+                <td>6966647</td>
+                <td>papakosta.sof@hotmail.com</td>
+            </tr>
+            <tr>
+                <td>Kostakis Petros</td>
+                <td>698834526 </td>
+                <td>kostpeter45@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Kalimeratzi Kyriaki</td>
+                <td>69888845</td>
+                <td>kyr77kal@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Papa Natalia</td>
+                <td>698789877</td>
+                <td>natpap66@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Tsaroychi Evangelia</td>
+                <td>6966647</td>
+                <td>evan.ts@hotmail.com</td>
+            </tr>
+        </table>
+        <br>
+        
+    </div>
+    
+    <p class="para">Click the <button onclick="myFunction()">button</button> to toggle between dark and light mode for this page.</p>
+
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+        }
+        </script>
+    <footer>
+        <div class="footer">
+            <p>Milkshakes and Dreams</p>
+            <p>2025</p>
+        </div>
+    </footer>
+
+</body>
+
 </html>

@@ -1,48 +1,200 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
+
+
 <head>
+
     <link rel="icon" href="logo.png">
+
     <title>About Us</title>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="viewport " content="width=device-width, initial-scale=1">
+
+    <style>
+
+        .navbar {
+
+            background-color: #7575ac;
+            padding: 25px 0;
+        }
+
+
+
+        .nav-link {
+
+            color: rgb(255, 240, 245);
+            font-size: 22px;
+
+            font-weight: bold;
+
+        }
+
+
+
+        .nav-link:hover {
+
+            color: #ffb6c1 !important;
+
+            /* Lighter pink */
+
+        }
+
+        .content-section {
+
+            display: none;
+
+            padding: 100px;
+
+        }
+
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }    
+
+    </style>
 
 </head>
 
+
+
 <body>
-    <div class="con">
-        <div class="navbar">
-            <img src="menu.jpeg" width=30px cursor=pointer margin-left=50px>
-            <nav>
-                <ul>
-                    
-                    <li><a href="idioktitria.html">About Us</a></li>
-                    <li><a href="LINK GIA TA JOB POSTINGS ">Job Postings</a></li>
-                    <li><a href="statistics.html">Reports</a></li>
-                </ul>
-            </nav>
-            <img src="logo.png" width=150px cursor=pointer>
+
+    <nav class="navbar navbar-expand-sm  fixed-top">
+
+        <div class="container-fluid">
+
+
+
+            <a class="navbar-brand" href="#">
+
+                <img src="logo.png" alt="Milshakes and Dreams Logo" style="width:90px;" class="rounded-pill">
+
+            </a>
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="idioktitria.html">About Us</a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="jobpostings.html">Job Postings</a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="statistics.html">Reports</a>
+
+                </li>
+
+            </ul>
+
         </div>
-    </div>
+
+    </nav>
+
     <div class="contact">
-        <h2>H epixeirhsh</h2>
+
+        <h2>Milkshakes and Dreams</h2>
+
         <br>
-        <p class="para">jbjhvjfygfvjhbgvfrtgyhujikmn  vgfujsednvsw cdfisjfcodsjv dcn wsaqcdcsj xjn vdsnjvn csi sjvmcdnjnv sdvsdojzcxn  sdihzc skdjn
+
+        <p class="para">
+
+            Καλωσορίσατε στην Milkshakes and Dreams! Η εταιρεία μας ιδρύθηκε το 2013 και έκτοτε προσφέρει μια ευρεία γκάμα προϊόντων ένδυσης, ειδών διακόσμησης, αξεσουάρ, παιδικών παιχνιδιών καθώς και προϊόντα για μητέρες. Στόχος μας είναι να παρέχουμε προϊόντα και υπηρεσίες υψηλής ποιότητας που ανταποκρίνονται στις ανάγκες των ανθρώπων, δημιουργώντας μια μοναδική εμπειρία για τον κάθε πελάτη με σεβασμό, ποιότητα και καινοτομία. Φροντίζουμε η ομάδα μας να αποτελείται από άτομα με αγάπη για τα παιδιά και κάθε μέλος της  να παίζει σημαντικό ρόλο στην επίτευξη των στόχων μας και στην παροχή των καλύτερων δυνατών λύσεων για τους πελάτες μας.
+
+ 
+
+            Στην Milkshakes and Dreams κατανοούμε τις προκλήσεις που αντιμετωπίζουν οι εταιρείες κατά τη διάρκεια της διαδικασίας προσλήψεων. Γι' αυτό δημιουργήσαμε ένα σύστημα που διευκολύνει την ανάρτηση θέσεων εργασίας και τη συνολική διαχείριση βιογραφικών με απλό και γρήγορο τρόπο. Εμείς παρέχουμε μια ευέλικτη και ολοκληρωμένη πλατφόρμα, που μας επιτρέπει να επικεντρωθούμε στο πιο σημαντικό: να βρούμε τους καλύτερους ανθρώπους για τις θέσεις τους.
+
+
+
         </p><br>
-       
+
         <br>
-        <h3></h3>
+
+        <div class="action-buttons text-center">
+
+            <button class="btn custom-red-button">Edit</button>
+
+        </div>
+
         <br>
+
+        <br>
+
+        <br>
+
+        <section class="container">
+
+            <div class="slider-wrapper">
+
+                <div class="slider">
+
+                    <img id="slide-1" src="photo.jpeg" alt="image of the front of the shop" />
+
+                    <img id="slide-2" src="photo2.jpeg" alt="image 1 inside the shop" />
+
+                    <img id="slide-3" src="photo3.jpeg" alt="image 2 inside the shop" />
+
+                </div>
+
+                <div class="slider-nav">
+
+                    <a href="#slide-1"></a>
+
+                    <a href="slide-2"></a>
+
+                    <a href="slide-3"></a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <br>
+
+        <h3>E-shop:</h3>
+
+        <p class="para"> The official website of the company's e-shop:<a href="https://milkshakesanddreams.com"> Milkshakes and Dreams</a> </p>
+
        
+
     </div>
 
     <footer>
+
         <div class="footer">
+
             <p>Milkshakes and dreams</p>
+
             <p>2025</p>
+
         </div>
+
     </footer>
+
+    </script>
+
 </body>
+
+
 
 </html>
