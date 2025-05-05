@@ -63,6 +63,7 @@
       const errorMsg = document.getElementById("errorMessage");
       const title = document.getElementById("roleTitle");
 
+      selectedRole = role; 
       // Αρχικά κρύβουμε τα μηνύματα και τη φόρμα
       form.classList.add("hidden");
       successMsg.classList.add("hidden");
@@ -94,6 +95,16 @@
       } else {
         errorMsg.classList.add("hidden");
         successMsg.classList.remove("hidden");
+      
+        if (selectedRole === "hr") {
+      setTimeout(() => {
+        window.location.href = "HR Manager.html"; // 👉 Αλλαγή με τη σελίδα που θέλεις να ανοίγει
+      }, 1000); // Μικρή καθυστέρηση για να προλάβει να φανεί το μήνυμα επιτυχίας
+    } else if (selectedRole === "owner") {
+      setTimeout(() => {
+        window.location.href = "idioktitria.html"; // 👉 Εδώ για ιδιοκτήτη
+      }, 1000);
+    }
       }
     }
   </script>
