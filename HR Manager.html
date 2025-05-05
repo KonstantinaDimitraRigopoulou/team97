@@ -304,6 +304,11 @@
                     <h3 class="offcanvas-title">Φίλτρα Αναζήτησης</h3>
                     <button class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                 </div>
+                <!-- Λέξη-κλειδί -->
+                <div class="mb-4">
+                    <label for="keywordSearch" class="form-label">Αναζήτηση με Λέξη-Κλειδί</label>
+                    <input type="text" id="keywordSearch" class="form-control" placeholder="Π.χ. Πωλητής, Αγγλικά...">
+                </div>
                 <div class="offcanvas-body">
                     <!-- Φίλτρο Εκπαίδευσης -->
                     <h5>Εκπαίδευση</h5>
@@ -465,6 +470,22 @@
     }
     </script>
     
+    <script>
+        function applyFilters() {
+            const keyword = document.getElementById('keywordSearch').value.toLowerCase();
+            const applications = document.querySelectorAll('#applications .application-box');
+        
+            applications.forEach(app => {
+                const text = app.innerText.toLowerCase();
+                if (keyword === '' || text.includes(keyword)) {
+                    app.style.display = 'block';
+                } else {
+                    app.style.display = 'none';
+                }
+            });
+        }
+        </script>
+        
 
 </body>
 
