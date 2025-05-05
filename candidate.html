@@ -10,12 +10,13 @@
 <body>
 
   <!-- Μενού -->
-  <nav style="position: relative;">
+  <nav style="position: fixed; top: 0; width: 100%; z-index: 1000; background-color:  #7575ac;">
     <div class="nav-left">
       <p>Έχετε συνδεθεί ως Υποψήφιος Εργαζόμενος</p>
     </div>
     <div class="nav-right">
       <ul>
+        <li><a href="#" onclick="toggleAboutUs()">About Us</a></li>
         <li><a href="#" onclick="toggleJobPostings()">Job Postings</a></li>
         <li><a href="#" onclick="toggleForm()">Apply</a></li>
       </ul>
@@ -24,6 +25,38 @@
   </nav>
 
   <div class="container">
+
+    <div id="aboutUsSection" style="display:none;" class="contact">
+      <h2>Milkshakes and Dreams</h2>
+      <br>
+      <p class="para">
+        Καλωσορίσατε στην Milkshakes and Dreams! Η εταιρεία μας ιδρύθηκε το 2013 και έκτοτε προσφέρει μια ευρεία γκάμα προϊόντων ένδυσης, ειδών διακόσμησης, αξεσουάρ, παιδικών παιχνιδιών καθώς και προϊόντα για μητέρες. Στόχος μας είναι να παρέχουμε προϊόντα και υπηρεσίες υψηλής ποιότητας που ανταποκρίνονται στις ανάγκες των ανθρώπων, δημιουργώντας μια μοναδική εμπειρία για τον κάθε πελάτη με σεβασμό, ποιότητα και καινοτομία. Φροντίζουμε η ομάδα μας να αποτελείται από άτομα με αγάπη για τα παιδιά και κάθε μέλος της  να παίζει σημαντικό ρόλο στην επίτευξη των στόχων μας και στην παροχή των καλύτερων δυνατών λύσεων για τους πελάτες μας.
+        Στην Milkshakes and Dreams κατανοούμε τις προκλήσεις που αντιμετωπίζουν οι εταιρείες κατά τη διάρκεια της διαδικασίας προσλήψεων. Γι' αυτό δημιουργήσαμε ένα σύστημα που διευκολύνει την ανάρτηση θέσεων εργασίας και τη συνολική διαχείριση βιογραφικών με απλό και γρήγορο τρόπο. Εμείς παρέχουμε μια ευέλικτη και ολοκληρωμένη πλατφόρμα, που μας επιτρέπει να επικεντρωθούμε στο πιο σημαντικό: να βρούμε τους καλύτερους ανθρώπους για τις θέσεις τους.
+
+      </p>
+      
+      <br><br>
+      <section class="container">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img id="slide-1" src="photo.jpeg" alt="image of the front of the shop" />
+            <img id="slide-2" src="photo2.jpeg" alt="image 1 inside the shop" />
+            <img id="slide-3" src="photo3.jpeg" alt="image 2 inside the shop" />
+          </div>
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+      </section>
+      
+      <h3>E-shop:</h3>
+      <p class="para">The official website of the company's e-shop: 
+        <a href="https://milkshakesanddreams.com">Milkshakes and Dreams</a>
+      </p>
+    </div>
+
     <h3 id="jobTitle" style="display:none;"><b>Job Postings</b></h3>
     <div id="jobPostings" style="display:none;">
       
@@ -147,14 +180,33 @@
     </form>
   </div>
 
-  <script>
+<script>
+
+function toggleAboutUs() {
+  const aboutUs = document.getElementById("aboutUsSection");
+  const jobPostings = document.getElementById("jobPostings");
+  const jobTitle = document.getElementById("jobTitle");
+  const form = document.getElementById("applicationForm");
+
+  // Απόκρυψη όλων των άλλων
+  jobPostings.style.display = "none";
+  jobTitle.style.display = "none";
+  form.style.display = "none";
+
+  // Εναλλαγή προβολής για το About Us
+  const showAbout = aboutUs.style.display !== "block";
+  aboutUs.style.display = showAbout ? "block" : "none";
+}
+
     function toggleJobPostings() {
       const jobPostings = document.getElementById("jobPostings");
       const jobTitle = document.getElementById("jobTitle");
       const form = document.getElementById("applicationForm");
-  
+      const aboutUs = document.getElementById("aboutUsSection"); 
+
       // Πάντα κρύψε τη φόρμα
       form.style.display = "none";
+      aboutUs.style.display = "none";
   
       // Εμφάνισε ή κρύψε τα job postings
       const showJobPostings = jobPostings.style.display !== "block";
@@ -166,10 +218,12 @@
       const form = document.getElementById("applicationForm");
       const jobPostings = document.getElementById("jobPostings");
       const jobTitle = document.getElementById("jobTitle");
-  
+      const aboutUs = document.getElementById("aboutUsSection");
+
       // Πάντα κρύψε τα job postings
       jobPostings.style.display = "none";
       jobTitle.style.display = "none";
+      aboutUs.style.display = "none";
   
       // Εμφάνισε ή κρύψε τη φόρμα
       const showForm = form.style.display !== "block";
@@ -197,6 +251,25 @@
       this.reset();
       this.style.display = "none";
     });
+
+    // Λειτουργία για να ορίσεις το ενεργό link
+function setActiveLink(event) {
+  // Βρίσκουμε όλα τα links
+  const links = document.querySelectorAll('nav ul li a');
+  
+  // Αφαιρούμε την κλάση active από όλα τα links
+  links.forEach(link => link.classList.remove('active'));
+  
+  // Προσθέτουμε την κλάση active στο τρέχον link που πατήθηκε
+  event.target.classList.add('active');
+}
+
+// Προσθέτουμε event listener σε όλα τα links του nav
+document.querySelectorAll('nav ul li a').forEach(link => {
+  link.addEventListener('click', setActiveLink);
+});
+
+
   </script>  
 
 </body>
