@@ -662,7 +662,10 @@ nav ul li a.active {
 }
 
 .nav-left {
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
   padding: 15px;
   color: white;
   font-weight: bold;
@@ -673,8 +676,19 @@ nav ul li a.active {
   padding: 15px;
 }
 
+.nav-center {
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  flex: 1;  /* Αυτό θα κάνει το nav-center να παίρνει τον διαθέσιμο χώρο */
+  display: flex;  /* Χρησιμοποιούμε flexbox */
+  justify-content: center;  /* Στοιχίζουμε το κείμενο οριζόντια στο κέντρο */
+  align-items: center;
+}
+
 body {
-  padding-top: 120px; /* Ή όσο ύψος έχει το nav */
+  padding-top: 90px; /* Ή όσο ύψος έχει το nav */
 }
 
 
