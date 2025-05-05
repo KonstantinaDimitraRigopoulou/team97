@@ -3,21 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap Navigation Menu</title>
+    <title>HR Manager</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport " content="width=device-width, initial-scale=1">
     <style>
-        .navbar {
-            background-color: #7575ac;
-        }
-
-        .nav-link {
-            color: rgb(255, 240, 245);
-        }
-
         .nav-link:hover {
-            color: #ffb6c1 !important;
-            /* Lighter pink */
+            color: #ffb6c1;
         }
 
         .content-section {
@@ -26,7 +17,7 @@
         }
 
 
-        body {
+        .body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -41,9 +32,6 @@
             font-weight: bold;
         }
 
-        .nav-link:hover {
-            color: #ffb6c1 !important;
-        }
 
         .content-section {
             display: none;
@@ -96,7 +84,6 @@
             text-align: center;
         }
     </style>
-    </style>
 </head>
 
 
@@ -112,12 +99,14 @@
 
                     <a class="nav-link" href="#" target="_self" onclick="showSection('jobPostings')">Job
                         Postings</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" target="_self" onclick="showSection('applications')">Applications</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" target="_self" onclick="showSection('markedApplications')">Marked
                         Applications</a>
+                </li>
             </ul>
 
 
@@ -128,7 +117,54 @@
         <div id="jobPostings" class="content-section">
             <h3>Job Postings</h3>
             <p>Here are the uploaded job postings.</p>
-            <!-- Visual placeholders for applications -->
+            <button class="btn btn-dark mb-3" style="background-color: #7575ac; color: white;"
+            data-bs-toggle="modal" data-bs-target="#uploadModal">Upload</button>
+
+            <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="uploadModalLabel">Upload Job Posting</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                      <form id="jobForm">
+                        <div class="mb-3">
+                          <label for="jobTitle" class="form-label">Θέση Εργασίας</label>
+                          <input type="text" class="form-control" id="jobTitle" placeholder="Enter job title">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="jobDescription" class="form-label">Περιγραφή Εργασίας</label>
+                        <textarea class="form-control" id="jobDescription" rows="4" placeholder="Enter job description"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="jobType" class="form-label">Full/Part Time</label>
+                        <select class="form-select" id="jobType">
+                          <option value="">Select...</option>
+                          <option value="full-time">Πλήρης Απασχόληση</option>
+                          <option value="part-time">Μερική Απασχόληση</option>
+                          <option value="part-time">Πλήρης ή Μερική Απασχόληση</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="jobLocation" class="form-label">Τοποθεσία</label>
+                        <input type="text" class="form-control" id="jobLocation" placeholder="Enter location">
+                    </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+
+            
             <div class="application-box">
                 <b>Θέση Εργασίας: </b> Πωλητής
                 <br> <b>Περιγραφή Εργασίας: </b> Αναζητούμε άτομο για εργασία σε εποχιακό κατάστημα λιανικής
@@ -172,13 +208,15 @@
         <div id="applications" class="content-section">
             <h3>Applications</h3>
             <p>Here are the available applications.</p>
-            <!-- Visual placeholders for applications -->
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" style="background-color: #7f79e5;">
+
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+                style="background-color: #7f79e5;">
                 Filters
             </button>
             <div class="application-box">
                 <b>
-                    <h5>Μαρία Δρόσου</h5>
+
+                    <h5>Μαρία Δρόσου <span class="badge bg-secondary">New</span></h5>
                 </b>
                 <br> <b>Θέση: </b> Πωλητής
                 <br> <b>Εκπαίδευση: </b> Απόφοιτος ΤΕΙ
@@ -263,17 +301,95 @@
 
             <div class="offcanvas offcanvas-start" id="sidebar">
                 <div class="offcanvas-header">
-                    <h3 class="offcanvas-title">Filters</h3>
-                    <button class="btn-close text-reset" data-bs-dismiss="offcanvas">
-                    </button>
+                    <h3 class="offcanvas-title">Φίλτρα Αναζήτησης</h3>
+                    <button class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                 </div>
                 <div class="offcanvas-body">
+                    <!-- Φίλτρο Εκπαίδευσης -->
+                    <h5>Εκπαίδευση</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="check1" name="option1" </div>
+                        <input class="form-check-input" type="checkbox" id="edu1" value="Απόφοιτος Λυκείου">
+                        <label class="form-check-label" for="edu1">Απόφοιτος Λυκείου</label>
                     </div>
-                </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="edu2" value="Απόφοιτος ΙΕΚ">
+                        <label class="form-check-label" for="edu2">Απόφοιτος ΙΕΚ</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="edu3" value="Απόφοιτος ΤΕΙ">
+                        <label class="form-check-label" for="edu3">Απόφοιτος ΤΕΙ</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="edu4" value="Απόφοιτος Πανεπιστημίου">
+                        <label class="form-check-label" for="edu4">Απόφοιτος Πανεπιστημίου</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="edu5" value="Μεταπτυχιακό / Διδακτορικό">
+                        <label class="form-check-label" for="edu5">Μεταπτυχιακό / Διδακτορικό</label>
+                    </div>
 
+
+                    <h5 class="mt-4">Ξένες Γλώσσες</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang1" value="Αγγλικά">
+                        <label class="form-check-label" for="lang1">Αγγλικά</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang2" value="Γαλλικά">
+                        <label class="form-check-label" for="lang2">Γαλλικά</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang3" value="Γερμανικά">
+                        <label class="form-check-label" for="lang3">Γερμανικά</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang4" value="Ιταλικά">
+                        <label class="form-check-label" for="lang4">Ιταλικά</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang5" value="Ισπανικά">
+                        <label class="form-check-label" for="lang5">Ισπανικά</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang6" value="Ρώσικα">
+                        <label class="form-check-label" for="lang6">Ρώσικα</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lang6" value="Ρώσικα">
+                        <label class="form-check-label" for="lang6">Άλλη γλώσσα</label>
+                    </div>
+
+
+                    <h5 class="mt-4">Έχει Εργασιακή Εμπειρία;</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="experience" id="expYes" value="yes">
+                        <label class="form-check-label" for="expYes">όχι</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="experience" id="expNo" value="no">
+                        <label class="form-check-label" for="expNo">>1 χρόνο</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="experience" id="expNo" value="no">
+                        <label class="form-check-label" for="expNo">>3 χρόνια</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="experience" id="expNo" value="no">
+                        <label class="form-check-label" for="expNo">>5 χρόνια</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="experience" id="expNo" value="no">
+                        <label class="form-check-label" for="expNo">Ναι</label>
+                    </div>
+
+                    <button class="btn btn-primary mt-4 w-100" onclick="applyFilters()">Εφαρμογή Φίλτρων</button>
+                    <button class="btn btn-secondary mt-2 w-100" onclick="clearFilters()">Καθαρισμός Φίλτρων</button>
+
+                </div>
             </div>
+
+
+        </div>
 
 
         <div id="markedApplications" class="content-section">
@@ -282,30 +398,74 @@
             <div class="category-section">
                 <div class="category-column">
                     <div class="category-title">YES</div>
-                        <div class="application-box">Candidate A</div>
-                        <div class="application-box">Candidate B</div>
-                    </div>
+                    <div class="application-box">Κωνσταντίνος Δημόπουλος</div>
+                    <div class="application-box">Μαρία Δρόσου</div>
+                    <div class="application-box">Δήμητρα Γαλανάκη</div>
+                </div>
                 <div class="category-column">
-                <div class="category-title">MAYBE</div>
-                    <div class="application-box">Candidate C</div>
+                    <div class="category-title">MAYBE</div>
+                    <div class="application-box">Γιώργος Παπαδόπουλος</div>
+                    <div class="application-box">Μελίνα Χρυσοπούλου</div>
                 </div>
                 <div class="category-column">
                     <div class="category-title">NO</div>
-                    <div class="application-box">Candidate D</div>
+                    <div class="application-box">Μάξιμος Καλυφτάκης</div>
+                    <div class="application-box">Αθηνά Παπαδάκη</div>
                 </div>
             </div>
         </div>
     </div>
 
-        <!-- Bootstrap JS + Toggle Script -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            function showSection ( sectionId ) {
-                const sections = document.querySelectorAll( '.content-section' );
-                sections.forEach( sec => sec.style.display = 'none' ); // Hide all
-                document.getElementById( sectionId ).style.display = 'block'; // Show selected
-            }
-        </script>
+    <!-- Bootstrap JS + Toggle Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        function showSection ( sectionId ) {
+            const sections = document.querySelectorAll( '.content-section' );
+            sections.forEach( sec => sec.style.display = 'none' );
+            document.getElementById( sectionId ).style.display = 'block';
+        }
+
+
+        document.addEventListener( 'DOMContentLoaded', function () {
+            showSection( 'section1' );
+        } );
+    </script>
+
+    <script>
+        document.getElementById('jobForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent actual form submission
+            
+          // Hide the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('uploadModal'));
+                modal.hide();
+              
+        // Show success alert (you can customize placement)
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success alert-dismissible fade show mt-3';
+            alert.role = 'alert';
+            alert.innerHTML = `
+                Form submitted successfully!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+            document.querySelector('.container')?.prepend(alert);
+
+        });
+    </script>
+
+    <script>
+        function clearFilters() {
+            const sidebar = document.getElementById('sidebar');
+    
+            // Uncheck all checkboxes
+            sidebar.querySelectorAll('input[type="checkbox"]').forEach(input => input.checked = false);
+    
+            // Uncheck all radio buttons
+            sidebar.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+    }
+    </script>
+    
+
 </body>
 
 
